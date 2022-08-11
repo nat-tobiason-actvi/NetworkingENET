@@ -117,7 +117,7 @@ int main(int argc, char** argv)
                 "An error occurred while trying to create an ENet server host.\n");
             exit(EXIT_FAILURE);
         }
-
+        
         while (1)
         {
             ENetEvent event;
@@ -192,6 +192,9 @@ int main(int argc, char** argv)
             cout << "Connection to 127.0.0.1:1234 failed." << endl;
         }
 
+
+        string name = CinUserInput("Enter name: ");
+
         while (1)
         {
             ENetEvent event;
@@ -204,6 +207,7 @@ int main(int argc, char** argv)
                     HandleENetRecieve(event);
 
                     {
+                        cout << name << ": ";
                         CreatePacket((char*)"hi", client);
                     }
                 }
